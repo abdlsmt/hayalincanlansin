@@ -21,10 +21,10 @@ jobs:
       - name: Kodu al
         uses: actions/checkout@v4
 
-      - name: Node.js
+      - name: Node.js (Astro 7 için en az 22.12.0)
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
           cache-dependency-path: package-lock.json
 
