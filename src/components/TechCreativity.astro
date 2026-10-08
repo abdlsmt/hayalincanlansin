@@ -1,0 +1,54 @@
+---
+import Icon from './Icon.astro';
+
+const items = [
+  {
+    icon: 'cpu',
+    title: 'Yapay Zekâ Destekli Yaratıcılık',
+    text: 'İleride Claude gibi büyük dil modellerinin; kişiselleştirilmiş hikâye oluşturma, anlatı tutarlılığı ve karakter geliştirme süreçlerinde değerlendirilmesi planlanıyor.',
+  },
+  {
+    icon: 'pen',
+    title: 'İnsan Kuratörlüğü',
+    text: 'Her hikâye, teknolojinin verdiği taslak üzerine insan yazarların ve kuratörlerin gözden geçirmesiyle şekillenecek.',
+  },
+  {
+    icon: 'palette',
+    title: 'Kişiselleştirme Motoru',
+    text: 'İsim, yaş, ilgi alanları ve anılar gibi detayların hikâyenin doku ve tonuna yansıtılması amaçlanıyor.',
+  },
+];
+---
+
+<section class="section section--alt" id="teknoloji" aria-labelledby="teknoloji-baslik">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal>
+      <p class="eyebrow">Teknoloji ve Yaratıcılık</p>
+      <h2 class="section-title" id="teknoloji-baslik">
+        Teknoloji, hayal gücünün yanında
+      </h2>
+      <p class="section-lead">
+        Yapay zekâ, hikâyeyi yazan değil; hayal gücünü daha geniş
+        bir tuvalde sergileyen bir araç olarak görünüyor.
+      </p>
+    </div>
+
+    <div class="tech-grid">
+      {items.map((item, index) => (
+        <article class="card" data-reveal style={`transition-delay: ${index * 120}ms`}>
+          <div class="card-icon">
+            <Icon name={item.icon} />
+          </div>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </article>
+      ))}
+    </div>
+
+    <p class="tech-note" data-reveal>
+      <strong>Dürüst not:</strong>
+      Bu entegrasyonlar plan aşamasındadır; henüz hiçbir dil modeli
+      entegre edilmemiş veya geliştirilmemiştir.
+    </p>
+  </div>
+</section>

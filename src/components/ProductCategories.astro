@@ -1,0 +1,69 @@
+---
+import CategoryCard from './CategoryCard.astro';
+import Icon from './Icon.astro';
+
+const categories = [
+  {
+    icon: 'book-open',
+    title: 'Bana Özel Masal',
+    description:
+      'Adın, karakterin ve hayal gücünle yazılan; yalnızca sana ait bir masal.',
+  },
+  {
+    icon: 'book',
+    title: 'Kişiselleştirilmiş Hikâye Kitabı',
+    description:
+      'Kahramanın adını taşıyan, sayfa sayfa okunan bir hikâye kitabı deneyimi.',
+  },
+  {
+    icon: 'heart',
+    title: 'Anılarımızdan Bir Hikâye',
+    description:
+      'Aile anıların ve özel günlerinin, güçlendirici bir hikâyeye dönüştürülmüş hâli.',
+  },
+  {
+    icon: 'compass',
+    title: 'Hayalimdeki Macera',
+    description:
+      'Senin hayal ettiğin dünyaya, senin kurallarınla yapılan kişisel bir macera.',
+  },
+  {
+    icon: 'gift',
+    title: 'Özel Gün Sürprizleri',
+    description:
+      'Doğum günleri, yıldönümleri ve özel günler için hazırlanan dijital sürprizler.',
+  },
+  {
+    icon: 'sparkles',
+    title: 'Dijital Hikâye Deneyimleri',
+    description:
+      'Okurken yaşanan, etkileşimli dijital hikâye ve görsel anlatı deneyimleri.',
+  },
+];
+---
+
+<section class="section" id="urunler" aria-labelledby="urunler-baslik">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal>
+      <p class="eyebrow">Neler Yapıyoruz?</p>
+      <h2 class="section-title" id="urunler-baslik">
+        Planladığımız ürün kategorileri
+      </h2>
+      <p class="section-lead">
+        Her kategori, kişisel hikâyeleri anlamlı eserlere dönüştürmek
+        üzerine tasarlanıyor. Ürünlerimiz şu anda geliştirme aşamasında.
+      </p>
+    </div>
+
+    <div class="category-grid">
+      {categories.map((item) => (
+        <CategoryCard
+          title={item.title}
+          description={item.description}
+        >
+          <Icon name={item.icon} slot="icon" />
+        </CategoryCard>
+      ))}
+    </div>
+  </div>
+</section>

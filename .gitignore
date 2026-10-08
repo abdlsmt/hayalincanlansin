@@ -1,0 +1,29 @@
+# Bağımlılıklar
+node_modules/
+.pnp/
+.pnp.*
+
+# Derleme çıktıları
+dist/
+.astro/
+out/
+build/
+
+# Çevre değişkenleri ve sırlar (asla yüklenemez)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+
+# Yerel ayarlar
+*.local
+*.log
+.DS_Store
+Thumbs.db
+
+# Editörler
+.vscode/
+.idea/
+*.swp

@@ -1,0 +1,45 @@
+---
+const steps = [
+  {
+    title: 'Hikâyeni anlat.',
+    text: 'Kahraman, ortam ve özel anılarını bizimle paylaş; hayalinin temellerini birlikte atalım.',
+  },
+  {
+    title: 'Hayal gücüyle şekillendirelim.',
+    text: 'Anlatı, karakterler ve görsel dünya, senin hikâyene uygun biçimde şekillendirilsin.',
+  },
+  {
+    title: 'Sana özel bir esere dönüştürelim.',
+    text: 'Son eser, tamamen sana özel bir hikâye olarak tamamlanıp sana ulaşsın.',
+  },
+];
+---
+
+<section class="section section--alt" id="nasil" aria-labelledby="nasil-baslik">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal>
+      <p class="eyebrow">Nasıl Çalışacak?</p>
+      <h2 class="section-title" id="nasil-baslik">Üç basit adımda, sana özel bir eser</h2>
+      <p class="section-lead">
+        Planlanan kullanıcı deneyimi şu şekilde şekillenecek; her adımda sen
+        yönetmen koltuğunda olacaksın.
+      </p>
+    </div>
+
+    <div class="steps">
+      {steps.map((step, index) => (
+        <div class="step" data-reveal style={`transition-delay: ${index * 120}ms`}>
+          <div class="step-number" aria-hidden="true">{index + 1}</div>
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="stage-note" data-reveal>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      Bu akış, planlanan kullanıcı deneyimidir. Sipariş ve ödeme adımları
+      henüz faal değildir.
+    </p>
+  </div>
+</section>

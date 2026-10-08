@@ -1,0 +1,21 @@
+---
+const story = [
+  'Luna, her gece yataktan kalkıp gökyüzünü sayardı. Bir gecelerinde gökyüzündeki en parlak yıldız yoktu.',
+  '"Umarım kaybolmamışsındır," diye fısıldadı Luna. Sabah olur olmaz yola çıktı. Bahçedeki en büyük ağaca tırmandı, ama yıldız orada değildi. Nehre koştu, ama su yalnızca kendi yansımasını gösterdi. Sonra, eskiden hiç girmediği bir ormanın ucuna vardı.',
+  '"Yardım edebilir miyim?" dedi, sanki bir fısıltı gelir gibi. Ağaçların arasında küçük bir ateş böceği belirirdi. "Kayıp yıldız gökyüzüne dörmek istiyor," dedi böcek. "Ama korkuyor, çünkü artık nasıl parlatacağını bilmiyor."',
+  'Luna gülümsedi. "Herkesin karanlıkta ışık yansıtan bir anısı vardır. Sen de öyle." Ateş böceği yukarı süzüldü ve Luna gökyüzüne baktı. En parlak yıldız, önceki gibi değil; artık iki kez parlayarak ışıl ışıl dönüyordu.',
+  '"O yıldız," diye düşündü Luna, "artık bir hikâyeye sahip." Ve o geceden sonra Luna, her yıldızı sayarken artık sadece ışık değil, her birinin küçük bir hikâyesini de saydı.',
+];
+---
+
+<aside class="sample-story" data-reveal aria-labelledby="ornek-hikaye-baslik">
+  <div class="sample-story-header">
+    <h3 id="ornek-hikaye-baslik">Okunabilir Örnek: Luna ve Kayıp Yıldız</h3>
+    <span class="badge badge--concept">Marka Örneği</span>
+  </div>
+  {story.map((paragraph) => <p>{paragraph}</p>)}
+  <p class="sample-story-disclaimer">
+    Bu hikâye, marka tarafından oluşturulmuş özgün bir örnek çalışmadır;
+    müşteri yorumu, satış örneği veya gerçek bir sipariş değildir.
+  </p>
+</aside>

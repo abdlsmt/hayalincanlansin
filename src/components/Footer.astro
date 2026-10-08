@@ -1,0 +1,66 @@
+---
+import { siteConfig } from '../config/site';
+
+const year = new Date().getFullYear();
+const navLinks = [
+  { href: '#anasayfa', label: 'Ana Sayfa' },
+  { href: '#urunler', label: 'Neler Yapıyoruz?' },
+  { href: '#nasil', label: 'Nasıl Çalışacak?' },
+  { href: '#ornekler', label: 'Örnekler' },
+  { href: '#hakkimizda', label: 'Hakkımızda' },
+];
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#anasayfa" aria-label="Hayalin Canlansın — Ana Sayfa">
+          <svg viewBox="0 0 64 64" width="34" height="34" aria-hidden="true" focusable="false">
+            <rect width="64" height="64" rx="14" fill="#7C6BB8" />
+            <path
+              d="M32 9l5.1 10.4 11.4 1.6-8.3 8 2 11.3L32 35.2l-10.2 5.1 2-11.3-8.3-8 11.4-1.6z"
+              fill="#FAF6EF"></path>
+            <path
+              d="M16 45.5c3.2-2.6 6.4-4 9.8-4.8 2.6-3.7 5.8-3.7 8.4 0 2.6 3.8 5.8 3.8 8.4 0 3.4.8 6.6 2.2 9.8 4.8v7.7H16z"
+              fill="#F9C9A8"></path>
+          </svg>
+          <span class="brand-word">Hayalin <em>Canlansın</em></span>
+        </a>
+        <p>
+          {siteConfig.tagline} Bağımsız olarak geliştirilen, erken aşamadaki bir
+          yaratıcı teknoloji girişimi.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Keşfet</h4>
+        <ul>
+          {navLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>İletişim</h4>
+        <ul>
+          <li>
+            <a href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(siteConfig.emailSubject)}`}>
+              {siteConfig.email}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© {year} {siteConfig.name}. Tüm hakları saklıdır.</span>
+      <span class="stage"
+        >{siteConfig.statusNote} — ürünler henüz satışa sunulmamaktadır.</span
+      >
+    </div>
+  </div>
+</footer>

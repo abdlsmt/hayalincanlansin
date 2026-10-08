@@ -1,0 +1,22 @@
+---
+import ConceptArt from './ConceptArt.astro';
+
+interface Props {
+  variant: 'space' | 'forest' | 'family';
+  title: string;
+  description: string;
+}
+
+const { variant, title, description } = Astro.props;
+---
+
+<article class="story-card" data-reveal>
+  <div class="story-art">
+    <ConceptArt variant={variant} title={title} />
+  </div>
+  <div class="story-body">
+    <h3>{title}</h3>
+    <p>{description}</p>
+    <span class="badge badge--concept story-tag">Konsept Örneği</span>
+  </div>
+</article>

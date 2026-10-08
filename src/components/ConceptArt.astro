@@ -1,0 +1,163 @@
+---
+type Variant = 'space' | 'forest' | 'family';
+
+interface Props {
+  variant: Variant;
+  title: string;
+}
+
+const { variant, title } = Astro.props;
+---
+
+{variant === 'space' && (
+  <svg viewBox="0 0 400 300" role="img" aria-label={`${title} konsept illüstrasyonu`}>
+    <defs>
+      <linearGradient id="uzayGok" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#5B4E8C" />
+        <stop offset="1" stop-color="#7C6BB8" />
+      </linearGradient>
+      <linearGradient id="uzayGezegen" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#F6D7E0" />
+        <stop offset="1" stop-color="#E8AEC4" />
+      </linearGradient>
+    </defs>
+    <rect width="400" height="300" fill="url(#uzayGok)" />
+    <g fill="#FAF6EF">
+      <circle cx="52" cy="48" r="2.6" />
+      <circle cx="120" cy="30" r="2" />
+      <circle cx="330" cy="42" r="2.4" />
+      <circle cx="368" cy="120" r="2" />
+      <circle cx="36" cy="150" r="2.2" />
+      <circle cx="250" cy="26" r="1.8" />
+      <path
+        transform="translate(300 96) scale(0.7)"
+        d="M0 -11C1.6 -3.4 3.4 -1.6 11 0 3.4 1.6 1.6 3.4 0 11-1.6 3.4-3.4 1.6-11 0-3.4-1.6-1.6-3.4 0-11Z"
+      />
+      <path
+        transform="translate(80 110) scale(0.55)"
+        d="M0 -11C1.6 -3.4 3.4 -1.6 11 0 3.4 1.6 1.6 3.4 0 11-1.6 3.4-3.4 1.6-11 0-3.4-1.6-1.6-3.4 0-11Z"
+      />
+    </g>
+    <!-- Gezegen ve halkası -->
+    <g transform="translate(120 200)">
+      <ellipse rx="86" ry="22" fill="none" stroke="#F9C9A8" stroke-width="7" opacity="0.85" transform="rotate(-16)" />
+      <circle r="42" fill="url(#uzayGezegen)" />
+      <circle cx="-12" cy="-10" r="8" fill="#E8AEC4" opacity="0.7" />
+      <circle cx="14" cy="12" r="5" fill="#E8AEC4" opacity="0.7" />
+    </g>
+    <!-- Roket -->
+    <g transform="translate(268 128) rotate(24)">
+      <path d="M0 -52c14 10 20 30 20 48 0 10-9 16-20 16s-20-6-20-16c0-18 6-38 20-48Z" fill="#FAF6EF" />
+      <path d="M-20 8l-14 20 16-4M20 8l14 20-16-4" fill="#E8AEC4" />
+      <circle cx="0" cy="-18" r="9" fill="#7C6BB8" />
+      <circle cx="0" cy="-18" r="9" fill="none" stroke="#FAF6EF" stroke-width="3" />
+      <path d="M-8 26c3 8 5 12 8 16 3-4 5-8 8-16Z" fill="#F9C9A8" />
+    </g>
+    <!-- Küçük ay -->
+    <path d="M352 218a26 26 0 1 0 21 44 21 21 0 1 1-21-44Z" fill="#FAF6EF" opacity="0.9" />
+  </svg>
+)}
+
+{variant === 'forest' && (
+  <svg viewBox="0 0 400 300" role="img" aria-label={`${title} konsept illüstrasyonu`}>
+    <defs>
+      <linearGradient id="ormanGok" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#EDE8F8" />
+        <stop offset="1" stop-color="#F6D7E0" />
+      </linearGradient>
+    </defs>
+    <rect width="400" height="300" fill="url(#ormanGok)" />
+    <!-- Hilal -->
+    <path d="M330 52a30 30 0 1 0 24 50 24 24 0 1 1-24-50Z" fill="#FFFFFF" opacity="0.95" />
+    <!-- Ağaçlar -->
+    <g>
+      <path d="M70 240V150l34-52 34 52v90Z" fill="#7C6BB8" />
+      <path d="M70 176l34-52 34 52-34 14Z" fill="#5B4E8C" opacity="0.85" />
+      <rect x="100" y="240" width="8" height="26" rx="4" fill="#3A3447" />
+      <path d="M250 240V140l28-44 28 44v100Z" fill="#C9BFF2" />
+      <path d="M250 162l28-44 28 44-28 12Z" fill="#7C6BB8" opacity="0.8" />
+      <rect x="275" y="240" width="7" height="24" rx="3.5" fill="#3A3447" />
+      <path d="M330 240V170l20-32 20 32v70Z" fill="#A89AD4" />
+      <rect x="347" y="240" width="6" height="20" rx="3" fill="#3A3447" />
+    </g>
+    <!-- Yol -->
+    <path d="M180 300c10-24 24-40 40-52 8 10 22 26 32 52Z" fill="#F9C9A8" opacity="0.8" />
+    <!-- Mantarlar -->
+    <g>
+      <path d="M96 262a14 12 0 0 1 28 0l-3 8h-22Z" fill="#E8AEC4" />
+      <rect x="106" y="270" width="8" height="14" rx="4" fill="#FAF6EF" />
+      <circle cx="104" cy="256" r="2.4" fill="#FAF6EF" />
+      <circle cx="116" cy="259" r="2" fill="#FAF6EF" />
+      <path d="M300 268a11 10 0 0 1 22 0l-2.4 6.4h-17.2Z" fill="#F6D7E0" />
+      <rect x="307" y="274" width="6.4" height="11" rx="3.2" fill="#FAF6EF" />
+    </g>
+    <!-- Ateş böcekleri -->
+    <g fill="#F9C9A8">
+      <circle class="twinkle" cx="160" cy="110" r="4" />
+      <circle class="twinkle twinkle--2" cx="210" cy="80" r="3.2" />
+      <circle class="twinkle twinkle--3" cx="140" cy="180" r="3" />
+      <circle class="twinkle twinkle--2" cx="240" cy="150" r="3.6" />
+    </g>
+  </svg>
+)}
+
+{variant === 'family' && (
+  <svg viewBox="0 0 400 300" role="img" aria-label={`${title} konsept illüstrasyonu`}>
+    <defs>
+      <linearGradient id="aileGok" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#F9C9A8" />
+        <stop offset="1" stop-color="#F6D7E0" />
+      </linearGradient>
+    </defs>
+    <rect width="400" height="300" fill="url(#aileGok)" />
+    <!-- Güneş -->
+    <g transform="translate(72 66)">
+      <g stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.9">
+        <path d="M0 -34v-12M0 34v12M-34 0h-12M34 0h12M-24 -24l-9-9M24 24l9 9M24 -24l9-9M-24 24l-9 9" />
+      </g>
+      <circle r="26" fill="#FFFFFF" />
+    </g>
+    <!-- Bulut -->
+    <g fill="#FFFFFF" opacity="0.8">
+      <ellipse cx="300" cy="60" rx="34" ry="13" />
+      <ellipse cx="326" cy="52" rx="22" ry="11" />
+    </g>
+    <!-- Tepeler -->
+    <ellipse cx="90" cy="300" rx="200" ry="60" fill="#C9BFF2" opacity="0.45" />
+    <ellipse cx="330" cy="310" rx="210" ry="66" fill="#EDE8F8" opacity="0.6" />
+    <!-- İki figür, el ele -->
+    <g>
+      <circle cx="170" cy="150" r="20" fill="#5B4E8C" />
+      <path d="M170 172c-16 0-26 12-26 30v40h52v-40c0-18-10-30-26-30Z" fill="#7C6BB8" />
+      <circle cx="232" cy="158" r="16" fill="#E8AEC4" />
+      <path d="M232 176c-13 0-21 10-21 24v34h42v-34c0-14-8-24-21-24Z" fill="#F6D7E0" />
+      <!-- Ele tutan eller -->
+      <circle cx="199" cy="206" r="9" fill="#FAF6EF" />
+      <path d="M186 196c6 6 20 6 26 0" fill="none" stroke="#FAF6EF" stroke-width="5" stroke-linecap="round" />
+    </g>
+    <!-- Kalp -->
+    <path
+      class="twinkle"
+      transform="translate(201 112) scale(1.1)"
+      d="M0 4C-8 -6-20 -2-20 9 0 24 20 24 20 9 20-2 8-6 0 4Z"
+      fill="#E8A06C"
+    />
+    <!-- Çiçekler -->
+    <g>
+      <g transform="translate(120 252)">
+        <circle cx="0" cy="-7" r="5" fill="#FFFFFF" />
+        <circle cx="7" cy="0" r="5" fill="#FFFFFF" />
+        <circle cx="-7" cy="0" r="5" fill="#FFFFFF" />
+        <circle cx="0" cy="7" r="5" fill="#FFFFFF" />
+        <circle r="4" fill="#F9C9A8" />
+      </g>
+      <g transform="translate(292 258) scale(0.85)">
+        <circle cx="0" cy="-7" r="5" fill="#FFFFFF" />
+        <circle cx="7" cy="0" r="5" fill="#FFFFFF" />
+        <circle cx="-7" cy="0" r="5" fill="#FFFFFF" />
+        <circle cx="0" cy="7" r="5" fill="#FFFFFF" />
+        <circle r="4" fill="#E8AEC4" />
+      </g>
+    </g>
+  </svg>
+)}

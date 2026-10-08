@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<article class="card" data-reveal>
+  <div class="card-icon">
+    <slot name="icon" />
+  </div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <span class="badge badge--soon">Planlanıyor</span>
+</article>

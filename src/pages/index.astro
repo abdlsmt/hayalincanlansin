@@ -1,0 +1,76 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.astro';
+import ProductCategories from '../components/ProductCategories.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import StoryCard from '../components/StoryCard.astro';
+import SampleStory from '../components/SampleStory.astro';
+import TechCreativity from '../components/TechCreativity.astro';
+import About from '../components/About.astro';
+import Contact from '../components/Contact.astro';
+
+const stories: {
+  variant: 'space' | 'forest' | 'family';
+  title: string;
+  description: string;
+}[] = [
+  {
+    variant: 'space',
+    title: 'Uzay Macerası',
+    description:
+      'Uzayda kaybolmuş küçük bir kahramanın, kayıp yıldızları geri getirmek için çıktığı cesaret ve dostluk yolculuğu.',
+  },
+  {
+    variant: 'forest',
+    title: 'Büyülü Orman Masalı',
+    description:
+      'Fısıldayan ağaçların ve ışıldayan ateş böceklerinin olduğu bir ormanda, kaybolmuş bir haritayı bulmayı amaçlayan masal.',
+  },
+  {
+    variant: 'family',
+    title: 'Aile ve Dostluk Hikâyesi',
+    description:
+      'Güneşin bir agacın gölgesinde ısındığı bir bahçede kurulmuş, aile bağları ve samimi dostluklar üzerine bir anlatı.',
+  },
+];
+---
+
+<MainLayout
+  title="Ana Sayfa"
+  description="Hayalin Canlansın — kişisel anıları ve hayallerin, kişiye özel masallar, hikâye kitapları ve yaratıcı dijital deneyimlere dönüştüğü bir yaratıcı teknoloji girişimi. Geliştirme aşamasında."
+>
+  <Hero />
+  <ProductCategories />
+  <HowItWorks />
+
+  <section class="section" id="ornekler" aria-labelledby="ornekler-baslik">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <p class="eyebrow">Örnekler</p>
+        <h2 class="section-title" id="ornekler-baslik">
+          Konsept örneklerimiz
+        </h2>
+        <p class="section-lead">
+          Aşağıdaki hikâyeler, gelecekte sunulabilecek ürün
+          konseptlerini tanıtmak amacıyla hazırlanmıştır.
+        </p>
+      </div>
+
+      <div class="story-grid">
+        {stories.map((story) => (
+          <StoryCard
+            variant={story.variant}
+            title={story.title}
+            description={story.description}
+          />
+        ))}
+      </div>
+
+      <SampleStory />
+    </div>
+  </section>
+
+  <TechCreativity />
+  <About />
+  <Contact />
+</MainLayout>

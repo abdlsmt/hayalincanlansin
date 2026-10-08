@@ -1,0 +1,35 @@
+---
+import { siteConfig } from '../config/site';
+import Icon from './Icon.astro';
+
+const mailto = `mailto:${siteConfig.email}?subject=${encodeURIComponent(siteConfig.emailSubject)}`;
+---
+
+<section class="section section--alt contact" id="iletisim" aria-labelledby="iletisim-baslik">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal>
+      <p class="eyebrow">İletişim</p>
+      <h2 class="section-title" id="iletisim-baslik">
+        Hayalini anlatmak ister misin?
+      </h2>
+      <p class="section-lead">
+        Soruların, iş birliği fikirlerin veya erken erişim
+        taleplerin için bize yazabilirsin.
+      </p>
+    </div>
+
+    <div class="contact-card" data-reveal>
+      <span class="badge badge--soon">Doğrulanmış e-posta</span>
+      <p class="contact-email">{siteConfig.email}</p>
+      <a class="btn btn--email" href={mailto}>
+        <Icon name="book-open" size={18} />
+        E-posta gönder
+      </a>
+      <p class="contact-note">
+        İletişim formu henüz faal değildir; mesajlarını doğrudan
+        e-posta ile iletebilirsin. Yanıtlar çalışma saatleri içinde
+        dönmektedir.
+      </p>
+    </div>
+  </div>
+</section>
