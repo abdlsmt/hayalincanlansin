@@ -1,0 +1,71 @@
+---
+const stages = [
+  {
+    title: 'Marka ve tanıtım sitesi',
+    status: 'Tamamlandı',
+    tone: 'done',
+    text: 'Alan adı, kimlik ve tanıtım sitesi yayında. Tüm ürün durumları açıkça etiketleniyor.',
+  },
+  {
+    title: 'İnteraktif hikâye prototipi',
+    status: 'Tamamlandı',
+    tone: 'done',
+    text: 'Üç tema ve üç yaş grubu için çalışan, cihazda üreten hikâye demo’su sitede.',
+  },
+  {
+    title: 'Claude ile hikâye üretimi',
+    status: 'Sırada',
+    tone: 'next',
+    text: 'Sunucu taraflı bir servis üzerinden değişken uzunlukta anlatı denenmesi. Anahtar istemciye asla gelmeyecek.',
+  },
+  {
+    title: 'Sayfalama ve PDF çıktısı',
+    status: 'Planlanıyor',
+    tone: 'planned',
+    text: 'Hikâyelerin kitap düzeninde sayfalanması, kapak tasarımı ve yazdırılabilir çıktı.',
+  },
+  {
+    title: 'Görsel üretim ve baskı',
+    status: 'Araştırılıyor',
+    tone: 'research',
+    text: 'İllüstrasyon üretimi, baskı kalitesi ve teslimat için maliyet/fizibilite araştırması.',
+  },
+  {
+    title: 'Kapalı beta testleri',
+    status: 'Planlanıyor',
+    tone: 'planned',
+    text: 'İlk ailelerle geri bildirim döngüsü. Gerçek kullanıcı verisi olmadan ilerleme yüzdesi paylaşılmıyor.',
+  },
+];
+---
+
+<section class="section section--alt" id="yol-haritasi" aria-labelledby="yol-haritasi-baslik">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal>
+      <p class="eyebrow">Geliştirme Yol Haritası</p>
+      <h2 class="section-title" id="yol-haritasi-baslik">
+        Sırada ne var?
+      </h2>
+      <p class="section-lead">
+        Aşağıdaki liste planlama durumunu gösterir. Kesin tarih ve
+        tamamlanma yüzdesi açıklamıyoruz; çünkü henüz gerçek kullanıcı
+        verisi oluşmadı.
+      </p>
+    </div>
+
+    <ol class="roadmap" data-reveal>
+      {stages.map((stage, index) => (
+        <li class="roadmap-item">
+          <span class="roadmap-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          <div class="roadmap-body">
+            <div class="roadmap-head">
+              <h3>{stage.title}</h3>
+              <span class={`badge badge--${stage.tone}`}>{stage.status}</span>
+            </div>
+            <p>{stage.text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

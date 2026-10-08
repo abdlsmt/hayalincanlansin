@@ -1,0 +1,315 @@
+﻿---
+const themeOptions = [
+  {
+    id: 'space',
+    label: 'Uzay Macerası',
+    hint: 'Sönen bir yıldızın ışığını geri getirmek için uzaya yolculuk.',
+  },
+  {
+    id: 'forest',
+    label: 'Büyülü Orman',
+    hint: 'Sararan yaprakların arasında, ormanın kalbine uzanan bir yolculuk.',
+  },
+  {
+    id: 'ocean',
+    label: 'Deniz Altı Dünyası',
+    hint: 'Sönen bir deniz fenerinin ışığını derinlerde arama macerası.',
+  },
+];
+
+const ageOptions = [
+  { id: '3-5', label: '3–5 yaş', hint: 'Kısa cümleler, sade kelimeler' },
+  { id: '6-8', label: '6–8 yaş', hint: 'Dengeli ve akıcı anlatım' },
+  { id: '9-12', label: '9–12 yaş', hint: 'Zenginleşmiş dil, uzun anlatım' },
+];
+---
+
+<section class="section demo" id="demo" aria-labelledby="demo-baslik">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal>
+      <p class="eyebrow">Canlı Demo</p>
+      <h2 class="section-title" id="demo-baslik">
+        Kendi hikâyeni şimdi dene
+      </h2>
+      <p class="section-lead">
+        Kahramanın adını yaz, bir tema ve yaş grubu seç. Birkaç saniye
+        içinde sana özel kısa bir hikâye oluşsun.
+      </p>
+      <p class="demo-tags">
+        <span class="badge badge--concept">İnteraktif konsept demo</span>
+        <span class="badge badge--soon">Kayıt yok · Gönderim yok</span>
+      </p>
+    </div>
+
+    <div class="demo-shell" data-reveal>
+      <form class="demo-form" id="storyForm" novalidate>
+        <div class="demo-field">
+          <label class="demo-label" for="heroName">Kahramanın adı</label>
+          <input
+            class="demo-input"
+            type="text"
+            id="heroName"
+            name="heroName"
+            maxlength="30"
+            autocomplete="off"
+            placeholder="Örn. Deniz"
+            aria-describedby="heroNameHint"
+          />
+          <p class="demo-hint" id="heroNameHint">
+            En fazla 30 karakter. Bu bilgi cihazından çıkmaz.
+          </p>
+        </div>
+
+        <fieldset class="demo-field">
+          <legend class="demo-label">Hikâye teması</legend>
+          <div class="demo-options">
+            {themeOptions.map((theme) => (
+              <label class="demo-option">
+                <input type="radio" name="theme" value={theme.id} checked={theme.id === 'space'} />
+                <span class="demo-option-body">
+                  <span class="demo-option-icon" aria-hidden="true">
+                    {theme.id === 'space' && (
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                    )}
+                    {theme.id === 'forest' && (
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z"/><path d="M12 22v-3"/></svg>
+                    )}
+                    {theme.id === 'ocean' && (
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6z"/><path d="M18 12v.01"/><path d="M3 21c2.5-2.5 5-4 8-4s5.5 1.5 8 4"/><path d="M3 14c2.5-2.5 5-4 8-4s5.5 1.5 8 4"/></svg>
+                    )}
+                  </span>
+                  <span class="demo-option-text">
+                    <span class="demo-option-title">{theme.label}</span>
+                    <span class="demo-option-hint">{theme.hint}</span>
+                  </span>
+                </span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <fieldset class="demo-field">
+          <legend class="demo-label">Yaş grubu</legend>
+          <div class="demo-options demo-options--compact">
+            {ageOptions.map((age) => (
+              <label class="demo-option">
+                <input type="radio" name="ageGroup" value={age.id} checked={age.id === '6-8'} />
+                <span class="demo-option-body">
+                  <span class="demo-option-text">
+                    <span class="demo-option-title">{age.label}</span>
+                    <span class="demo-option-hint">{age.hint}</span>
+                  </span>
+                </span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <fieldset class="demo-field">
+          <legend class="demo-label">
+            Karakter özelliği
+            <span class="demo-optional">(opsiyonel)</span>
+          </legend>
+          <div class="demo-options demo-options--traits" id="traitOptions"></div>
+          <p class="demo-hint" id="traitHint">
+            Seçersen hikâyenin olay örgüsüne işler.
+          </p>
+        </fieldset>
+
+        <p class="demo-error" id="demoError" role="alert" hidden></p>
+
+        <button class="btn btn--primary demo-submit" type="submit" id="storySubmit">
+          Hikâyemi Oluştur
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+
+      <div class="demo-output" id="storyOutput" aria-live="polite" aria-atomic="false">
+        <div class="demo-placeholder" id="storyPlaceholder">
+          <span class="demo-placeholder-mark" aria-hidden="true">✦</span>
+          <p>
+            Hikâyen burada belirecek. Adını yazıp <strong>Hikâyemi Oluştur</strong>
+            düğmesine basman yeterli.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <p class="demo-provenance" id="demoProvenance" data-reveal>
+      <strong>Dürüst not:</strong>&nbsp;Bu demo tarayıcında çalışan, önceden
+      hazırlanmış şablonlardan bir hikâye derler. Yapay zekâ API'si kullanılmaz,
+      girdilerin hiçbir sunucuya gönderilmez ve cihazından çıkmaz.
+    </p>
+  </div>
+</section>
+
+<script>
+  import { generateStory, themes, validateInput } from '../lib/storyEngine.ts';
+  import type { AgeGroupId, ThemeId } from '../lib/storyTypes.ts';
+
+  const form = document.getElementById('storyForm') as HTMLFormElement | null;
+  const nameInput = document.getElementById('heroName') as HTMLInputElement | null;
+  const traitBox = document.getElementById('traitOptions') as HTMLDivElement | null;
+  const errorBox = document.getElementById('demoError') as HTMLParagraphElement | null;
+  const output = document.getElementById('storyOutput') as HTMLDivElement | null;
+
+  if (form && nameInput && traitBox && errorBox && output) {
+    let variant = 0;
+
+    const getRadio = (name: string): HTMLInputElement | null =>
+      form.querySelector<HTMLInputElement>(`input[name="${name}"]:checked`);
+
+    /** Karakter özelliklerini, seçili kalmayı koruyarak çizer. */
+    function renderTraits(): void {
+      const themeId = (getRadio('theme')?.value ?? 'space') as ThemeId;
+      const theme = themes[themeId];
+      const previous = getRadio('trait')?.value ?? '';
+      const keep = theme.traits.some((t) => t.id === previous) ? previous : '';
+
+      traitBox!.replaceChildren();
+
+      const append = (value: string, labelText: string, checked: boolean): void => {
+        const label = document.createElement('label');
+        label.className = 'demo-option demo-option--pill';
+
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'trait';
+        input.value = value;
+        input.checked = checked;
+
+        const body = document.createElement('span');
+        body.className = 'demo-option-body';
+        const title = document.createElement('span');
+        title.className = 'demo-option-title';
+        title.textContent = labelText;
+        body.appendChild(title);
+
+        label.append(input, body);
+        traitBox!.appendChild(label);
+      };
+
+      theme.traits.forEach((trait) => append(trait.id, trait.label, trait.id === keep));
+      append('', 'Seçmiyorum', keep === '');
+    }
+
+    function showError(message: string): void {
+      errorBox!.textContent = message;
+      errorBox!.hidden = false;
+    }
+
+    function clearError(): void {
+      errorBox!.textContent = '';
+      errorBox!.hidden = true;
+    }
+
+    /** Sonucu yalnızca `textContent` ile çizer — HTML yorumu yoktur (XSS güvenli). */
+    function renderStory(result: ReturnType<typeof generateStory>): void {
+      output!.replaceChildren();
+
+      const article = document.createElement('article');
+      article.className = 'story-sheet';
+      article.tabIndex = -1;
+
+      const head = document.createElement('header');
+      head.className = 'story-sheet-head';
+
+      const title = document.createElement('h3');
+      title.className = 'story-sheet-title';
+      title.textContent = result.title;
+      head.appendChild(title);
+
+      const meta = document.createElement('ul');
+      meta.className = 'story-meta';
+      const chips = [result.themeLabel, result.ageLabel];
+      if (result.traitLabel) chips.push(result.traitLabel);
+      for (const chipText of chips) {
+        const li = document.createElement('li');
+        li.className = 'story-meta-chip';
+        li.textContent = chipText;
+        meta.appendChild(li);
+      }
+      head.appendChild(meta);
+      article.appendChild(head);
+
+      const body = document.createElement('div');
+      body.className = 'story-sheet-body';
+      for (const paragraph of result.paragraphs) {
+        const p = document.createElement('p');
+        p.textContent = paragraph;
+        body.appendChild(p);
+      }
+      article.appendChild(body);
+
+      const actions = document.createElement('div');
+      actions.className = 'story-actions';
+
+      const retry = document.createElement('button');
+      retry.type = 'button';
+      retry.className = 'btn btn--ghost story-action';
+      retry.textContent = 'Tekrar dene';
+      retry.addEventListener('click', () => {
+        variant += 1;
+        submit(true);
+      });
+
+      const print = document.createElement('button');
+      print.type = 'button';
+      print.className = 'btn btn--ghost story-action';
+      print.textContent = 'Yazdır / PDF';
+      print.addEventListener('click', () => window.print());
+
+      actions.append(retry, print);
+      article.appendChild(actions);
+
+      const note = document.createElement('p');
+      note.className = 'story-provenance';
+      note.textContent = result.provenance;
+      article.appendChild(note);
+
+      output!.appendChild(article);
+      article.focus({ preventScroll: false });
+    }
+
+    function submit(fromRetry = false): void {
+      const themeId = getRadio('theme')?.value ?? '';
+      const ageId = getRadio('ageGroup')?.value ?? '';
+      const traitId = getRadio('trait')?.value || undefined;
+
+      const check = validateInput({ heroName: nameInput!.value, theme: themeId, ageGroup: ageId });
+      if (!check.ok) {
+        showError(check.message ?? 'Lütfen formu kontrol et.');
+        nameInput!.focus();
+        return;
+      }
+      clearError();
+
+      if (!fromRetry) variant = 0;
+
+      renderStory(
+        generateStory({
+          heroName: nameInput!.value,
+          theme: themeId as ThemeId,
+          ageGroup: ageId as AgeGroupId,
+          trait: traitId,
+          variant,
+        }),
+      );
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      submit();
+    });
+
+    for (const radio of form.querySelectorAll<HTMLInputElement>('input[name="theme"]')) {
+      radio.addEventListener('change', renderTraits);
+    }
+
+    nameInput.addEventListener('input', () => {
+      if (!errorBox!.hidden) clearError();
+    });
+
+    renderTraits();
+  }
+</script>

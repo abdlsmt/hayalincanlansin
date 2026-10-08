@@ -18,6 +18,8 @@
   --color-blush-deep: #e8aec4;
   --color-peach: #f9c9a8;
   --color-peach-deep: #e8a06c;
+  --color-danger: #a6402f;
+  --color-danger-soft: #fbe9e4;
 
   --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
   --font-body: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -1011,7 +1013,7 @@ body.nav-open .nav-toggle span:nth-child(3) {
   margin-top: 1rem;
 }
 
-.footer-col h4 {
+.footer-col h3 {
   font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 800;
@@ -1135,8 +1137,19 @@ body.nav-open .nav-toggle span:nth-child(3) {
   }
 }
 
-@media (max-width: 48rem) {
-  /* Mobil menü */
+/* ---------- Orta genişlik: bağlantı sığmazsa erken hamburger ---------- */
+
+@media (max-width: 72rem) {
+  .nav-menu {
+    gap: clamp(0.85rem, 1.6vw, 1.4rem);
+  }
+
+  .nav-menu a {
+    font-size: 0.94rem;
+  }
+}
+
+@media (max-width: 64rem) {
   .nav-toggle {
     display: flex;
   }
@@ -1158,6 +1171,8 @@ body.nav-open .nav-toggle span:nth-child(3) {
     visibility: hidden;
     pointer-events: none;
     transition: transform 0.28s ease, opacity 0.28s ease, visibility 0.28s;
+    max-height: calc(100vh - var(--header-height));
+    overflow-y: auto;
   }
 
   body.nav-open .nav-menu {
@@ -1170,7 +1185,7 @@ body.nav-open .nav-toggle span:nth-child(3) {
   .nav-menu a {
     display: block;
     padding: 0.95rem 0.35rem;
-    font-size: 1.08rem;
+    font-size: 1.05rem;
     border-bottom: 1px solid rgba(201, 191, 242, 0.4);
   }
 
@@ -1181,7 +1196,9 @@ body.nav-open .nav-toggle span:nth-child(3) {
   .nav-menu a::after {
     display: none;
   }
+}
 
+@media (max-width: 48rem) {
   /* Tek sütun ızgaralar */
   .category-grid,
   .story-grid,
@@ -1227,5 +1244,553 @@ body.nav-open .nav-toggle span:nth-child(3) {
   [data-reveal] {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* ============================================================
+   Etkileşimli hikâye demo'su
+   ============================================================ */
+
+.demo-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.demo-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+  gap: clamp(1.4rem, 3vw, 2.4rem);
+  align-items: start;
+}
+
+.demo-form {
+  display: grid;
+  gap: 1.5rem;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  background: var(--color-white);
+  border: 1px solid rgba(201, 191, 242, 0.6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.demo-field {
+  display: grid;
+  gap: 0.7rem;
+  border: none;
+  min-width: 0;
+}
+
+.demo-label {
+  padding: 0;
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--color-ink);
+}
+
+.demo-optional {
+  margin-left: 0.35rem;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+}
+
+.demo-input {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-lavender-soft);
+  background: var(--color-cream);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-ink);
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.demo-input::placeholder {
+  color: var(--color-ink-soft);
+  opacity: 0.75;
+}
+
+.demo-input:focus {
+  outline: none;
+  border-color: var(--color-lavender);
+  background: var(--color-white);
+  box-shadow: 0 0 0 4px rgba(124, 107, 184, 0.16);
+}
+
+.demo-hint {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-ink-soft);
+}
+
+.demo-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 0.7rem;
+}
+
+.demo-options--compact {
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+}
+
+.demo-options--traits {
+  grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+}
+
+.demo-option {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  min-width: 0;
+}
+
+.demo-option input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.demo-option-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  height: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid rgba(201, 191, 242, 0.7);
+  background: var(--color-cream);
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.demo-option:hover .demo-option-body {
+  border-color: var(--color-lavender);
+}
+
+.demo-option input:checked + .demo-option-body {
+  border-color: var(--color-lavender);
+  background: var(--color-lavender-mist);
+  box-shadow: 0 10px 22px -16px rgba(91, 78, 140, 0.75);
+}
+
+.demo-option input:focus-visible + .demo-option-body {
+  outline: 3px solid var(--color-lavender);
+  outline-offset: 2px;
+}
+
+.demo-option-icon {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-lavender-deep);
+  margin-top: 0.1rem;
+}
+
+.demo-option-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.demo-option-text {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.demo-option-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-ink);
+}
+
+.demo-option-hint {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--color-ink-soft);
+}
+
+.demo-option--pill .demo-option-body {
+  justify-content: center;
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+}
+
+.demo-option--pill .demo-option-title {
+  font-size: 0.9rem;
+}
+
+.demo-error {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-danger-soft);
+  border: 1px solid rgba(166, 64, 47, 0.35);
+  color: var(--color-danger);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.demo-error[hidden] {
+  display: none;
+}
+
+.demo-submit {
+  justify-self: start;
+}
+
+/* --- Sonuç alanı --- */
+
+.demo-output {
+  min-height: 26rem;
+}
+
+.demo-placeholder {
+  display: grid;
+  place-content: center;
+  gap: 0.9rem;
+  min-height: 26rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  text-align: center;
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--color-lavender-soft);
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--color-ink-soft);
+}
+
+.demo-placeholder-mark {
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--color-lavender);
+}
+
+.demo-placeholder p {
+  max-width: 24rem;
+  font-size: 0.98rem;
+}
+
+.story-sheet {
+  display: grid;
+  gap: 1.35rem;
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  background: var(--color-white);
+  border: 1px solid rgba(201, 191, 242, 0.6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  outline: none;
+}
+
+.story-sheet-head {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.story-sheet-title {
+  font-size: clamp(1.4rem, 3vw, 1.95rem);
+}
+
+.story-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.story-meta-chip {
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  background: var(--color-lavender-mist);
+  border: 1px solid var(--color-lavender-soft);
+  color: var(--color-lavender-deep);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.story-sheet-body {
+  display: grid;
+  gap: 1rem;
+}
+
+.story-sheet-body p {
+  font-size: 1.03rem;
+  line-height: 1.85;
+}
+
+.story-sheet-body p:first-child::first-letter {
+  float: left;
+  margin: 0.1em 0.12em 0 0;
+  font-family: var(--font-display);
+  font-size: 2.7em;
+  line-height: 0.85;
+  color: var(--color-lavender-deep);
+}
+
+.story-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.story-action {
+  padding: 0.75rem 1.35rem;
+  font-size: 0.93rem;
+}
+
+.story-provenance {
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(201, 191, 242, 0.5);
+  font-size: 0.83rem;
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+}
+
+.demo-provenance {
+  max-width: 46rem;
+  margin: clamp(1.5rem, 3vw, 2.2rem) auto 0;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-ink-soft);
+}
+
+/* ============================================================
+   Geliştirme yol haritası
+   ============================================================ */
+
+.badge--done {
+  background: var(--color-lavender-deep);
+  color: var(--color-white);
+  border: 1px solid var(--color-lavender-deep);
+}
+
+.badge--next {
+  background: var(--color-blush);
+  color: var(--color-ink);
+  border: 1px solid var(--color-blush-deep);
+}
+
+.badge--planned {
+  background: var(--color-lavender-mist);
+  color: var(--color-lavender-deep);
+  border: 1px solid var(--color-lavender-soft);
+}
+
+.badge--research {
+  background: #fdf0e3;
+  color: var(--color-peach-deep);
+  border: 1px solid var(--color-peach);
+}
+
+.roadmap {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 56rem;
+  margin-inline: auto;
+}
+
+.roadmap-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  align-items: start;
+  padding: clamp(1.1rem, 2.5vw, 1.5rem);
+  background: var(--color-white);
+  border: 1px solid rgba(201, 191, 242, 0.55);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.roadmap-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+}
+
+.roadmap-index {
+  padding-top: 0.15rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-lavender-soft);
+}
+
+.roadmap-body {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.roadmap-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.roadmap-head h3 {
+  font-size: 1.1rem;
+}
+
+.roadmap-body p {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--color-ink-soft);
+}
+
+/* ============================================================
+   Ek bileşenler (hero alt metni, kart başlıkları, demo zemini)
+   ============================================================ */
+
+.hero-sub {
+  max-width: 34rem;
+  margin-top: 1.1rem;
+  padding-left: 0.95rem;
+  border-left: 3px solid var(--color-lavender-soft);
+  font-size: 0.97rem;
+  line-height: 1.65;
+  color: var(--color-ink-soft);
+}
+
+.hero-sub strong {
+  color: var(--color-lavender-deep);
+  font-weight: 700;
+}
+
+.card-headings {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.card-headings h3 {
+  margin: 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: linear-gradient(120deg, var(--color-blush) 0%, var(--color-peach) 100%);
+  color: var(--color-ink);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.card--focus {
+  border-color: rgba(232, 174, 196, 0.85);
+}
+
+.demo {
+  background: linear-gradient(
+    180deg,
+    var(--color-cream) 0%,
+    var(--color-lavender-mist) 48%,
+    var(--color-cream) 100%
+  );
+}
+
+/* ============================================================
+   Duyarlı düzen eklemeleri
+   ============================================================ */
+
+@media (max-width: 64rem) {
+  .demo-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-output {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 48rem) {
+  .demo-options,
+  .demo-options--compact {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-submit {
+    justify-self: stretch;
+  }
+
+  .roadmap-item {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+}
+
+@media (max-width: 34rem) {
+  .demo-options--traits {
+    grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
+  }
+
+  .story-actions .btn {
+    flex: 1 1 100%;
+  }
+}
+
+/* ============================================================
+   Yazdırma / PDF — yalnızca hikâye sayfası basılır
+   ============================================================ */
+
+@media print {
+  @page {
+    margin: 16mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+  }
+
+  .site-header,
+  .site-footer,
+  .skip-link {
+    display: none !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .story-sheet,
+  .story-sheet * {
+    visibility: visible;
+  }
+
+  .story-sheet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    background: #ffffff;
+    border: none;
+    box-shadow: none;
+  }
+
+  .story-actions {
+    display: none !important;
+  }
+
+  .story-provenance {
+    color: #555555;
+    border-top: 1px solid #cccccc;
   }
 }

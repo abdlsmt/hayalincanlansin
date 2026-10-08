@@ -8,36 +8,48 @@ const categories = [
     title: 'Bana Özel Masal',
     description:
       'Adın, karakterin ve hayal gücünle yazılan; yalnızca sana ait bir masal.',
+    focus: true,
+    status: 'Çalışan prototip var',
   },
   {
     icon: 'book',
     title: 'Kişiselleştirilmiş Hikâye Kitabı',
     description:
       'Kahramanın adını taşıyan, sayfa sayfa okunan bir hikâye kitabı deneyimi.',
-  },
-  {
-    icon: 'heart',
-    title: 'Anılarımızdan Bir Hikâye',
-    description:
-      'Aile anıların ve özel günlerinin, güçlendirici bir hikâyeye dönüştürülmüş hâli.',
+    focus: true,
+    status: 'Prototip aşamasında',
   },
   {
     icon: 'compass',
     title: 'Hayalimdeki Macera',
     description:
       'Senin hayal ettiğin dünyaya, senin kurallarınla yapılan kişisel bir macera.',
+    focus: false,
+    status: 'Konsept aşamasında',
+  },
+  {
+    icon: 'heart',
+    title: 'Anılarımızdan Bir Hikâye',
+    description:
+      'Aile anıların ve özel günlerinin, güçlendirici bir hikâyeye dönüştürülmüş bir anlatıya dönüşmesi.',
+    focus: false,
+    status: 'Konsept aşamasında',
   },
   {
     icon: 'gift',
     title: 'Özel Gün Sürprizleri',
     description:
-      'Doğum günleri, yıldönümleri ve özel günler için hazırlanan dijital sürprizler.',
+      'Doğum günleri, yıldönümleri ve özel günler için hazırlanacak dijital sürprizler.',
+    focus: false,
+    status: 'Gelecek genişleme',
   },
   {
     icon: 'sparkles',
     title: 'Dijital Hikâye Deneyimleri',
     description:
       'Okurken yaşanan, etkileşimli dijital hikâye ve görsel anlatı deneyimleri.',
+    focus: false,
+    status: 'Gelecek genişleme',
   },
 ];
 ---
@@ -47,11 +59,12 @@ const categories = [
     <div class="section-head section-head--center" data-reveal>
       <p class="eyebrow">Neler Yapıyoruz?</p>
       <h2 class="section-title" id="urunler-baslik">
-        Planladığımız ürün kategorileri
+        Odak: kişiselleştirilmiş çocuk hikâyeleri
       </h2>
       <p class="section-lead">
-        Her kategori, kişisel hikâyeleri anlamlı eserlere dönüştürmek
-        üzerine tasarlanıyor. Ürünlerimiz şu anda geliştirme aşamasında.
+        Ana ürünümüz, ismi ve hayalleri kahramana dönüşen çocuk
+        hikâyeleri ile resimli hikâye kitapları. Diğer başlıklar
+        gelecekteki genişleme alanlarımızdır.
       </p>
     </div>
 
@@ -60,6 +73,8 @@ const categories = [
         <CategoryCard
           title={item.title}
           description={item.description}
+          focus={item.focus}
+          status={item.status}
         >
           <Icon name={item.icon} slot="icon" />
         </CategoryCard>

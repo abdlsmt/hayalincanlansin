@@ -1,16 +1,18 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/Hero.astro';
+import StoryDemo from '../components/StoryDemo.astro';
 import ProductCategories from '../components/ProductCategories.astro';
 import HowItWorks from '../components/HowItWorks.astro';
 import StoryCard from '../components/StoryCard.astro';
 import SampleStory from '../components/SampleStory.astro';
 import TechCreativity from '../components/TechCreativity.astro';
+import Roadmap from '../components/Roadmap.astro';
 import About from '../components/About.astro';
 import Contact from '../components/Contact.astro';
 
 const stories: {
-  variant: 'space' | 'forest' | 'family';
+  variant: 'space' | 'forest' | 'ocean';
   title: string;
   description: string;
 }[] = [
@@ -18,19 +20,19 @@ const stories: {
     variant: 'space',
     title: 'Uzay Macerası',
     description:
-      'Uzayda kaybolmuş küçük bir kahramanın, kayıp yıldızları geri getirmek için çıktığı cesaret ve dostluk yolculuğu.',
+      'Sönen bir yıldızın ışığını geri getirmek için yıldızların arasına yapılan, cesaret ve dostluk üzerine bir yolculuk.',
   },
   {
     variant: 'forest',
     title: 'Büyülü Orman Masalı',
     description:
-      'Fısıldayan ağaçların ve ışıldayan ateş böceklerinin olduğu bir ormanda, kaybolmuş bir haritayı bulmayı amaçlayan masal.',
+      'Sararan yaprakların ve fısıldayan ağaçların arasında, ormanın kalbine ulaşmayı amaçlayan bir masal.',
   },
   {
-    variant: 'family',
-    title: 'Aile ve Dostluk Hikâyesi',
+    variant: 'ocean',
+    title: 'Deniz Altı Dünyası',
     description:
-      'Güneşin bir agacın gölgesinde ısındığı bir bahçede kurulmuş, aile bağları ve samimi dostluklar üzerine bir anlatı.',
+      'Sönen bir deniz fenerinin ışığını derinlerde arayan, yunuslarla ve incilerle geçen bir su altı macerası.',
   },
 ];
 ---
@@ -40,6 +42,7 @@ const stories: {
   description="Hayalin Canlansın — kişisel anıları ve hayallerin, kişiye özel masallar, hikâye kitapları ve yaratıcı dijital deneyimlere dönüştüğü bir yaratıcı teknoloji girişimi. Geliştirme aşamasında."
 >
   <Hero />
+  <StoryDemo />
   <ProductCategories />
   <HowItWorks />
 
@@ -51,8 +54,9 @@ const stories: {
           Konsept örneklerimiz
         </h2>
         <p class="section-lead">
-          Aşağıdaki hikâyeler, gelecekte sunulabilecek ürün
-          konseptlerini tanıtmak amacıyla hazırlanmıştır.
+          Aşağıdaki üç hikâye, yukarıdaki demodaki üç temanın konsept
+          örnekleridir. Üretim kalitesinde bir kitap değil, ürün
+          yönünü anlatan örnektir.
         </p>
       </div>
 
@@ -71,6 +75,7 @@ const stories: {
   </section>
 
   <TechCreativity />
+  <Roadmap />
   <About />
   <Contact />
 </MainLayout>
