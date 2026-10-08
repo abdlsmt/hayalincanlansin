@@ -49,6 +49,12 @@ Bu proje, GitHub deposunun **kökü** olarak tasarlanmıştır
 > `https://hayalincanlansin.com.tr` olarak ayarlıdır. Özel
 > alan adı bağlanana kadar canonical URL'ler canlı domaini
 > gösterir; DNS yönlendirmesi yapıldığında doğru hâle gelir.
+>
+> Alt klasör yolları: Site kök dizinden (`/`) derlendiği için
+> `abdlsmt.github.io/hayalincanlansin/` alt adresinde görseller
+> ve CSS geçici olarak 404 verebilir. Bu, özel alan adı
+> (`hayalincanlansin.com.tr`) DNS'ye yönlendirildikten sonra
+> çözülür; repo `public/CNAME` dosyasıyla birlikte gelir.
 
 ## Alan adı bağlama
 
