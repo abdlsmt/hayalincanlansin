@@ -42,6 +42,9 @@ Bu proje, GitHub deposunun **kökü** olarak tasarlanmıştır
 1. Bu klasörün tüm içeriğini GitHub deposunun köküne taşı.
 2. Depo ayarlarından **Settings → Pages → Source** seçeneğini
    **GitHub Actions** olarak belirle.
+   **Bu adım tek seferlik ve el ile yapılmalıdır:** GitHub,
+   Actions token'ının API üzerinden Pages'i etkinleştirmesine
+   izin vermez ("Resource not accessible by integration").
 3. `main` dalına push ettiğinde workflow otomatik çalışır ve site
    `https://abdlsmt.github.io/hayalincanlansin/` adresinde yayınlanır.
 
